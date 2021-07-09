@@ -71,4 +71,12 @@ public class ProductController {
 		return "success";
 		
 	}
+
+	
+	@GetMapping("detail")
+	public String detail() {
+		return "/product/detail";
+	}
+	
+
 }
