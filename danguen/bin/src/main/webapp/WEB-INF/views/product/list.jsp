@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="/product/list">상품목록</a>
-<a href="/product/insert">상품등록</a>
+LIST
 </body>
 </html>
