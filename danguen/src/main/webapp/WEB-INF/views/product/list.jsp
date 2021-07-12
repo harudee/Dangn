@@ -11,6 +11,7 @@
 <body>
 <table class="table table-hover">
 		<thead>
+		<!-- 브랜치 업로드 -->
 			<tr>
 				<th>번호</th>
 				<th>판매자명</th>
