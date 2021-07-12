@@ -12,21 +12,21 @@ import com.cos.danguen.service.CommentService;
 
 import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
-@Controller
-@RequestMapping("/reply/*")
+//@RequiredArgsConstructor
+//@Controller
+//@RequestMapping("/reply/*")
 public class CommentController {
 	
-	private final CommentService cService;
-	
-	//댓글추가
-	@PostMapping("insert/{id}")
-	@ResponseBody
-	public String comments(@RequestBody Comment comment) {
-		System.out.println(comment);
-		cService.insert(comment);
-		return "success";
-	}
+//	private final CommentService cService;
+//	
+//	//댓글추가
+//	@PostMapping("insert/{id}")
+//	@ResponseBody
+//	public String comments(@RequestBody Comment comment) {
+//		System.out.println(comment);
+//		cService.insert(comment);
+//		return "success";
+//	}
 	
 //	//댓글리스트
 //	@GetMapping("commentList/{id}")

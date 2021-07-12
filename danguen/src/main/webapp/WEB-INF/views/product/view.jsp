@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ include file="../includes/header.jsp"%>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
 <div class="container">
 	<h3>Product View</h3>
@@ -8,6 +9,11 @@
 	<div class="form-group">
 			<label for="itemid">상품번호:</label> 
 			<input type="text" class="form-control" id="itemid" name="itemid" value="${product.itemid}" readonly="readonly">
+
+		</div>
+		<div class="form-group">
+			<label for="username">판매자명:</label> 
+			<input type="text" class="form-control" id="username" name="username" value="${principal.user.username}" readonly="readonly">
 
 		</div>
 		<div class="form-group">

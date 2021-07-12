@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ include file="../includes/header.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,8 @@
 <body>
 <h3> Update </h3>
     ItemID : <input type="text" name="id" id="id" value="${product.itemid}"> <br>
-	ItemName : <input type="text" name="name" id="name" value="${product.itemname}"> <br>
+    UserName : <input type="text" name="username" id="username" value="${principal.user.username}" readonly="readonly"> <br>
+	ItemName : <input type="text" name="itemname" id="itemname" value="${product.itemname}"><br>
 	Content : <textarea rows="5" cols="50" name="content" id="content">${product.content}</textarea><br>
 	Price: <input type="text" name="price" id="price" value="${product.price}"><br>
 	
@@ -22,15 +24,17 @@
     		url:"/delete/"+$("#id").text()
     	})
     	.done(function(resp){
+    		if(resp == "success"){
     		alert("삭제성공")
-    		location.href="/list"
+    		location.href="/product/list";
+    		}
     	})
     })
 
     $("#btnUpdate").click(function(){
     	
     	var dataParam={
-    		"name" : $("#name").val(),
+    		"itemname" : $("#itemname").val(),
     		"content" : $("#content").val(),
     		"price" : $("#price").val(),
     		"id" : $("#id").val()

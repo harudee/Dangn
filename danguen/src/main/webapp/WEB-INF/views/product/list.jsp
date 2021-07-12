@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ include file="../includes/header.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +13,7 @@
 		<thead>
 			<tr>
 				<th>번호</th>
+				<th>판매자명</th>
 				<th>상품명</th>
 				<th>상품내용</th>
 				<th>가격</th>
@@ -23,6 +24,7 @@
 			<c:forEach items="${product}" var="product" varStatus="st">
 				<tr>
 					<td>${product.itemid}</td>
+					<td>${principal.user.username}</td>
 					<td><a href="/product/view/${product.itemid}">${product.itemname}</a></td>
 					<td>${product.content}</td>
 					<td>${product.price}</td>

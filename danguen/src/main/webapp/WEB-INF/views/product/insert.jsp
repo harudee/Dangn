@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ include file="../includes/header.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +13,11 @@
 			<label for="itemname">상품명:</label> <input type="text"
 				class="form-control" id="itemname" name="itemname"
 				placeholder="Enter itemid">
-
+		</div>
+		<div class="form-group">
+			<label for="username">판매자명:</label>
+			<input type="text" id="username" name="username"
+				class="form-control" value="${principal.user.username }" readonly="readonly"/>
 		</div>
 		<div class="form-group">
 			<label for="content">상품내용:</label>
