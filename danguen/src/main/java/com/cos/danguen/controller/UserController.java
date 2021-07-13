@@ -53,6 +53,8 @@ public class UserController {
 		return "/user/login";
 	}
 	
+	//asdad
+	
 	//회원수정 화면
 	@GetMapping("update/{id}")
 	public String update(Model model, @PathVariable Long id) {
