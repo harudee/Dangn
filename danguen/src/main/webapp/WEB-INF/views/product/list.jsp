@@ -9,9 +9,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<section>
 <table class="table table-hover">
 		<thead>
-		<!-- 브랜치 업로드 -->
 			<tr>
 				<th>번호</th>
 				<th>판매자명</th>
@@ -25,7 +25,7 @@
 			<c:forEach items="${product}" var="product" varStatus="st">
 				<tr>
 					<td>${product.itemid}</td>
-					<td>${principal.user.username}</td>
+					<td>${product.user}</td>
 					<td><a href="/product/view/${product.itemid}">${product.itemname}</a></td>
 					<td>${product.content}</td>
 					<td>${product.price}</td>
@@ -34,5 +34,6 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	</section>
 </body>
 </html>
