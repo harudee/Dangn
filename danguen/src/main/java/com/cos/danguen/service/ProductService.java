@@ -33,6 +33,7 @@ public class ProductService {
 	@Transactional
 	public void insert(Product product) {
 		productrepository.save(product);
+		
 	}
 	
 	@Transactional

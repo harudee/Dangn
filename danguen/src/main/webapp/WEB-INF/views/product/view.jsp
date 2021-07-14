@@ -36,18 +36,20 @@
 			readonly="readonly">
 	</div>
 
-	<button type="button" id="btnUpdate" class="btn btn-primary  btn-sm">수정</button>
-	<button type="button" id="btnDelete" class="btn btn-danger  btn-sm">삭제</button>
-
-	<!-- Comment추가 -->
-	<div align="center">
-		<textarea rows="3" cols="50" id="msg"></textarea>
-		<input type="button" class="btn btn-secondary btn-sm" id="btnComment"
-			value="댓글쓰기">
-	</div>
-	<hr />
-	<div id="replyResult"></div>
-	<hr />
+		</div>
+		<div class="form-group">
+			<label for="content">상품내용:</label>
+			<textarea id="content" name="content" id="content" class="form-control" readonly="readonly">${product.content }</textarea>
+		</div>
+		
+		<div class="form-group">
+			<label for="price">가격:</label> 
+			<input type="number" class="form-control" id="price" name="price" value="${product.price}" readonly="readonly">
+		</div>
+		
+ 		<button type="button" id="btnUpdate" class="btn btn-primary  btn-sm">수정</button>
+ 		<button type="button" id="btnDelete" class="btn btn-danger  btn-sm">삭제</button> 
+ 		<button type="button" id="btnChat" class="btn btn-danger  btn-sm">채팅으로 거래하기</button> 
 
 </div>
 <br />
@@ -75,6 +77,12 @@
 			}
 		})
 	})
+
+$("#btnChat").click(function(){
+	alert("채팅");
+	location.href="/hello/chat";
+})
+
 </script>
 </body>
 </html>

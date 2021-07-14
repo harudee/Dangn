@@ -15,9 +15,11 @@
 				placeholder="Enter itemid">
 		</div>
 		<div class="form-group">
-			<label for="user">판매자명:</label>
-			<input type="text" id="user" name="user"
-				class="form-control" value="${principal.user.username }" readonly="readonly"/>
+
+			<label for="username">판매자명:</label>
+			<input type="text" id="username" name="username"
+				class="form-control" value="${principal.user.username}" readonly="readonly"/>
+
 		</div>
 		<div class="form-group">
 			<label for="content">상품내용:</label>
