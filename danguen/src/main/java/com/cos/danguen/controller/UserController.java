@@ -58,17 +58,17 @@ public class UserController {
 	//회원수정 화면
 	@GetMapping("update/{id}")
 	public String update(Model model, @PathVariable Long id) {
+		
 		model.addAttribute("user", userService.detail(id));
 		return "/user/update";
 	}
 	
 	@PutMapping("update/{id}")
 	@ResponseBody
-	public String update(@RequestBody User user/* ,@PathVariable Long id */,String password) {
+	public String update(@RequestBody User user ,@PathVariable Long id ,String password) {
 		String rawPassword = user.getPassword();
 		String encPassord = encoder.encode(rawPassword);
 		user.setPassword(encPassord);
-//		user.setId(id);
 		userService.update(user);
 		return "success";
 	}
@@ -76,6 +76,7 @@ public class UserController {
 	@DeleteMapping("delete/{id}")
 	@ResponseBody
 	public String delete(@PathVariable Long id) {
+		
 		userService.delete(id);
 		return "success";
 	}

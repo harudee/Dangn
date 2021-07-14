@@ -29,8 +29,6 @@
 				class="form-control" id="price" placeholder="Enter price"
 				name="price">
 		</div>
-		
-
 		<button type="submit" class="btn btn-primary">상품등록</button>
 	</form>
 

@@ -6,11 +6,9 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cos.danguen.model.Product;
+import com.cos.danguen.model.User;
 import com.cos.danguen.repository.ProductRepository;
 
 
@@ -31,7 +29,8 @@ public class ProductService {
 	}
 	
 	@Transactional
-	public void insert(Product product) {
+	public void insert(Product product, User user) {
+		product.setUser(user);
 		productrepository.save(product);
 		
 	}

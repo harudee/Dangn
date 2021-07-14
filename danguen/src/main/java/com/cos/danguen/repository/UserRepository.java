@@ -6,5 +6,5 @@ import com.cos.danguen.model.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 	 User findByUsername(String username);
-	 public void deleteById(Long num);
+	 public void deleteById(Long id);
 }

@@ -5,7 +5,7 @@
 		<h1>회원 정보 수정</h1>
 		<br>
 		<div class="form-group">
-			<label for="username">아이디</label> <input type="text" class="form-control" id="username" name="username"  value="${user.id}" readonly="readonly">
+			<label for="username">아이디</label> <input type="text" class="form-control" id="username" name="username"  value="${user.username}" readonly="readonly">
 		</div>
 		<div class="form-group">
 			<label for="password">비밀번호</label> <input type="password" class="form-control" id="password" name="password" value="" >

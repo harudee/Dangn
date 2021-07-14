@@ -2,6 +2,7 @@ package com.cos.danguen.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.cos.danguen.config.auth.PrincipalDetails;
 import com.cos.danguen.model.Product;
 import com.cos.danguen.service.ProductService;
 
@@ -37,8 +39,10 @@ public class ProductController {
 	}
 
 	@PostMapping("insert")
-	public String insert(Product product) {
-		productService.insert(product);
+	public String insert(Product product, @AuthenticationPrincipal PrincipalDetails principal) {
+		
+		productService.insert(product, principal.getUser());
+		
 		return "redirect:/product/list";
 	}
 
@@ -66,7 +70,6 @@ public class ProductController {
 	@PutMapping("update/{id}")
 	@ResponseBody
 	public String update(@PathVariable Long id, @RequestBody Product product) {
-		System.out.println("Put Update 불러옴");
 		productService.update(product, id);
 		return "success";
 		
