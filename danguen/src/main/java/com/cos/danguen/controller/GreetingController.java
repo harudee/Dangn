@@ -3,6 +3,7 @@ package com.cos.danguen.controller;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.util.HtmlUtils;
@@ -13,6 +14,7 @@ import com.cos.danguen.model.HelloMessage;
 @Controller
 @RequestMapping("/hello")
 public class GreetingController {
+
 
 	@GetMapping("/chat")
 	public String greet() {

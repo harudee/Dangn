@@ -31,16 +31,9 @@ public class ProductController {
 		return new CMRespDTO<>(1,"ok",productRepository.findAll());
 	}
 
-//	@GetMapping("insert")
-//	@PreAuthorize("isAuthenticated()")
-//	public String insert() {
-//		return "/product/insert";
-//	}
-
 	@CrossOrigin
 	@PostMapping("/insert")
 	public CMRespDTO<?> insert(@RequestBody Product product) {
-		System.out.println("controller insert 실행됨?");
 		return new CMRespDTO<>(1, "ok", productRepository.save(product));
 	}
 
@@ -50,22 +43,18 @@ public class ProductController {
 		return new CMRespDTO<>(1, "ok", productService.findById(id));
 	}
 
-	@DeleteMapping("delete/{id}")
+	@CrossOrigin
+	@DeleteMapping("/delete/{id}")
 	public CMRespDTO<?> delete(@PathVariable Long id) {
 		productRepository.deleteById(id);
 		return new CMRespDTO<>(1, "ok", null);
 	}
-
-//	@GetMapping("update/{id}")
-//	public String update(@PathVariable Long id, Model model) {
-//		model.addAttribute("product", productService.view(id));
-//		return "/product/update";
-//		
-//	}
 	
-	@PutMapping("update/{id}")
+	@CrossOrigin
+	@PutMapping("/update/{id}")
 	public CMRespDTO<?> update(@PathVariable Long id, @RequestBody Product product) {
 		
+		System.out.println("update 실행되냐");//controller 타는지 확인
 		Product productEntity = productRepository.findById(id).get();
 		
 		productEntity.setItemname(product.getItemname());
@@ -74,12 +63,6 @@ public class ProductController {
 		
 		return new CMRespDTO<>(1, "ok", productRepository.save(productEntity));
 	}
-	
-	
-//	@GetMapping("detail")
-//	public String detail() {
-//		return "/product/detail";
-//	}
 	
 
 }
