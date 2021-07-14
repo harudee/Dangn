@@ -33,6 +33,7 @@
 		
  		<button type="button" id="btnUpdate" class="btn btn-primary  btn-sm">수정</button>
  		<button type="button" id="btnDelete" class="btn btn-danger  btn-sm">삭제</button> 
+ 		<button type="button" id="btnChat" class="btn btn-danger  btn-sm">채팅으로 거래하기</button> 
 
 </div>
 <br/><br/>
@@ -58,7 +59,10 @@ $("#btnDelete").click(function(){
 	})
 })  
 
-
+$("#btnChat").click(function(){
+	alert("채팅");
+	location.href="/hello/chat";
+})
 
 </script>
 </body>

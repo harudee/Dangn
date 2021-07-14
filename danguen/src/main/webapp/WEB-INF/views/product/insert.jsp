@@ -17,7 +17,7 @@
 		<div class="form-group">
 			<label for="username">판매자명:</label>
 			<input type="text" id="username" name="username"
-				class="form-control" value="${principal.user.username }" readonly="readonly"/>
+				class="form-control" value="${principal.user.username}" readonly="readonly"/>
 		</div>
 		<div class="form-group">
 			<label for="content">상품내용:</label>

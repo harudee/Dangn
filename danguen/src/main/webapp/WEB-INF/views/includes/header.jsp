@@ -22,6 +22,9 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark mb-3"  >
    <ul class="navbar-nav">
    <sec:authorize access="isAnonymous()"> 
+   <li class="nav-item">
+      <a class="nav-link" href="/">Home</a>
+    </li>
     <li class="nav-item">
       <a class="nav-link" href="/register">회원가입</a>
     </li>
@@ -30,6 +33,9 @@
     </li>
     </sec:authorize>
     <sec:authorize access="isAuthenticated()">
+    <li class="nav-item">
+      <a class="nav-link" href="/">Home</a>
+    </li>
      <li class="nav-item" >
      <a class="nav-link" href="/update/${principal.user.id}">회원정보수정</a>
       <a class="nav-link" href="/logout">
@@ -45,3 +51,5 @@
     </sec:authorize>
   </ul>
 </nav>
+
+
