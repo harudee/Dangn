@@ -13,8 +13,8 @@ import com.cos.danguen.model.HelloMessage;
 
 @Controller
 @RequestMapping("/hello")
+@CrossOrigin
 public class GreetingController {
-
 
 	@GetMapping("/chat")
 	public String greet() {

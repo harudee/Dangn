@@ -46,10 +46,17 @@
 			<label for="price">가격:</label> 
 			<input type="number" class="form-control" id="price" name="price" value="${product.price}" readonly="readonly">
 		</div>
-		
- 		<button type="button" id="btnUpdate" class="btn btn-primary  btn-sm">수정</button>
+		<c:choose>
+		<c:when test="${product.user.id eq principal.user.id}">
+		<button type="button" id="btnUpdate" class="btn btn-primary  btn-sm">수정</button>
  		<button type="button" id="btnDelete" class="btn btn-danger  btn-sm">삭제</button> 
  		<button type="button" id="btnChat" class="btn btn-danger  btn-sm">채팅으로 거래하기</button> 
+		</c:when>
+		<c:otherwise>
+		<button type="button" id="btnChat" class="btn btn-danger  btn-sm">채팅으로 거래하기</button> 
+		</c:otherwise>
+		</c:choose>
+ 		
 
 </div>
 <br />
