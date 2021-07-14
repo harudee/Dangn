@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<section>
 <table class="table table-hover">
 		<thead>
 			<tr>
@@ -35,5 +36,6 @@
 		
 		</tbody>
 	</table>
+	</section>
 </body>
 </html>

@@ -16,7 +16,6 @@ import com.cos.danguen.model.HelloMessage;
 @CrossOrigin
 public class GreetingController {
 
-	
 	@GetMapping("/chat")
 	public String greet() {
 		return "chat";
