@@ -32,8 +32,8 @@ public class ProductService {
 	public void insert(Product product, User user) {
 		product.setUser(user);
 		productrepository.save(product);
-		
 	}
+	
 	
 	@Transactional
 	public Product findById(Long id) {
