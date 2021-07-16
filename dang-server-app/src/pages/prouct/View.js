@@ -68,6 +68,12 @@ const View = ({ match, props }) => {
           >
             수정
           </Link>
+          <Link
+            to={`/hello/chat`}
+            className="btn btn-info"
+          >
+            채팅으로 거래하기
+          </Link>
         </Card.Body>
       </Card>
     </div>
