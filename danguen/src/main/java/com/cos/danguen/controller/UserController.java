@@ -47,12 +47,20 @@ public class UserController {
 	private BCryptPasswordEncoder encoder;
 	
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	@CrossOrigin
 	//메인페이지 http://localhost:7777/
 	@GetMapping("/")
 	public String home() {
 		return "home";
 	}
+=======
+	private final UserService userService;
+	private final UserRepository userRepository;
+	private final BCryptPasswordEncoder encoder;
+	
+	private final HttpSession session;
+>>>>>>> Stashed changes
 	
 	//회원가입화면 http://localhost:7777/register
 	@GetMapping("register")
@@ -61,6 +69,7 @@ public class UserController {
 	}
 	
 	//회원가입 실행
+<<<<<<< Updated upstream
 	@PostMapping("register")
 	@ResponseBody
 	public String register(@RequestBody User user) {
@@ -68,6 +77,14 @@ public class UserController {
 			return "fail";
 		userService.registerUser(user);
 		return "success";
+=======
+	@PostMapping("/register")
+	public CMRespDTO<?> register(@RequestBody User user) {
+		user.setPassword(encoder.encode(user.getPassword()));
+		user.setRole("ROLE_USER");
+		
+		return new CMRespDTO<User>(1, "join ok", userRepository.save(user));
+>>>>>>> Stashed changes
 	}
 	
 	//로그인 화면

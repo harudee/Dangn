@@ -4,6 +4,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,25 +15,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cos.danguen.config.auth.PrincipalDetails;
+import com.cos.danguen.dto.CMRespDTO;
 import com.cos.danguen.model.Product;
+import com.cos.danguen.model.User;
 import com.cos.danguen.repository.ProductRepository;
 import com.cos.danguen.service.ProductService;
 
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-<<<<<<< Updated upstream
-@RestController
-=======
 @Controller
->>>>>>> Stashed changes
+
 @RequestMapping("/product/*")
 public class ProductController {
 
 	private final ProductRepository productRepository;
 	private final ProductService productService;
 	
-<<<<<<< Updated upstream
+
 	@CrossOrigin
 	@GetMapping("list")
 	public CMRespDTO<?> findAll(){
@@ -71,8 +71,7 @@ public class ProductController {
 		
 		return new CMRespDTO<>(1, "ok", productRepository.save(productEntity));
 	}
-=======
-	
+
 	@GetMapping("list")
 	   public String list(Model model) {
 	      model.addAttribute("product", productService.list());
