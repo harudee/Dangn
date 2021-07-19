@@ -15,7 +15,7 @@
 	<div class="form-group">
 		<label for="username">판매자명:</label> <input type="text"
 			class="form-control" id="username" name="username"
-			value="${product.user}" readonly="readonly">
+			value="${product.user.username}" readonly="readonly">
 
 	</div>
 	<div class="form-group">
@@ -36,29 +36,48 @@
 			readonly="readonly">
 	</div>
 
-		</div>
-		<div class="form-group">
-			<label for="content">상품내용:</label>
-			<textarea id="content" name="content" id="content" class="form-control" readonly="readonly">${product.content }</textarea>
-		</div>
-		
-		<div class="form-group">
-			<label for="price">가격:</label> 
-			<input type="number" class="form-control" id="price" name="price" value="${product.price}" readonly="readonly">
-		</div>
-		<c:choose>
-		<c:when test="${product.user.id eq principal.user.id}">
-		<button type="button" id="btnUpdate" class="btn btn-primary  btn-sm">수정</button>
- 		<button type="button" id="btnDelete" class="btn btn-danger  btn-sm">삭제</button> 
- 		<button type="button" id="btnChat" class="btn btn-danger  btn-sm">채팅으로 거래하기</button> 
-		</c:when>
-		<c:otherwise>
-		<button type="button" id="btnChat" class="btn btn-danger  btn-sm">채팅으로 거래하기</button> 
-		</c:otherwise>
-		</c:choose>
- 		
-
 </div>
+<div class="form-group">
+	<label for="content">상품내용:</label>
+	<textarea id="content" name="content" id="content" class="form-control"
+		readonly="readonly">${product.content }</textarea>
+</div>
+
+<div class="form-group">
+	<label for="price">가격:</label> <input type="number"
+		class="form-control" id="price" name="price" value="${product.price}"
+		readonly="readonly">
+</div>
+<c:choose>
+	<c:when test="${product.user.id eq principal.user.id}">
+		<button type="button" id="btnUpdate" class="btn btn-primary  btn-sm">수정</button>
+		<button type="button" id="btnDelete" class="btn btn-danger  btn-sm">삭제</button>
+		<button type="button" id="btnChat" class="btn btn-danger  btn-sm">채팅으로
+			거래하기</button>
+	</c:when>
+	<c:otherwise>
+		<button type="button" id="btnChat" class="btn btn-danger  btn-sm">채팅으로
+			거래하기</button>
+	</c:otherwise>
+</c:choose>
+
+<!-- 댓글추가 -->
+<br />
+<br />
+<div align="center">
+	<div>
+		<label for="username">로그인한 유저: </label> 
+		<input type="text" value="${principal.user.username }" readonly="readonly">
+	</div>
+	<textarea rows="3" cols="50" id="msg"></textarea>
+	<input type="button" class="btn btn-secondary btn-sm" id="btnComment"
+		value="댓글쓰기">
+</div>
+<hr />
+<div id="replyResult"></div>
+<hr />
+
+
 <br />
 <br />
 
@@ -85,11 +104,42 @@
 		})
 	})
 
-$("#btnChat").click(function(){
-	alert("채팅");
-	location.href="/hello/chat";
-})
-
+	$("#btnChat").click(function() {
+		alert("채팅");
+		location.href = "/hello/chat";
+	})
+	
+	
+	/* 댓글처리로직 */
+	$("#btnComment").click(function(){
+		if(${empty principal.user}){
+			alert("로그인 먼저 하세요");
+			location.href="/login";
+			return;
+		}
+		if($("#msg").val()==""){
+			alert("댓글을 적으세요");
+			return;
+		}
+		data = {
+				"id":$("#username").val(),
+				"itemid":$("#itemid").val(),
+				"content":$("#msg").val()
+		}
+		$.ajax({
+			type:"POST",
+			url:"/reply/insert/"+$("#itemid").val(),
+			contentType: "application/json; charset=utf-8",
+			data: JSON.stringify(data),
+		})
+		.done(function(){
+			alert("댓글 추가 성공");
+			location.href="/product/view/${product.itemid}";
+		})
+		.fail(function(){
+			alert("댓글 추가 실패");
+		})
+	})
 </script>
 </body>
 </html>

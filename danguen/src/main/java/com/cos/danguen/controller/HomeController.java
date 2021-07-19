@@ -1,17 +1,15 @@
 package com.cos.danguen.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 public class HomeController {
 
-	@GetMapping({"/", "/home"})
-	public String index() {
-		return "<h1>HOME</h1>";
-	}
+//	@GetMapping({"/", "/home"})
+//	public String index() {
+//		return "home";
+//	}
 //	
 //	@PostMapping("/token")
 //	public String token() {

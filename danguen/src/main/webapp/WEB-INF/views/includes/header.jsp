@@ -31,8 +31,7 @@
 
 <link rel="stylesheet" media="all"
 	href="https://d1unjqcospf8gs.cloudfront.net/assets/home/home-8695fc9a40c1263ffd9b650de5ca008a147a650c5c559cac4c2eecb262b6baef.css" />
-<script
-	src="https://d1unjqcospf8gs.cloudfront.net/assets/home/home-1f8c8a88a4cc8f20c3844e533b342d14553ebf3427cc2b945b7f37c1f7433ec9.js"></script>
+
 
 <link rel="apple-touch-icon" sizes="192x192"
 	href="/images/icons/daangn_logo_192.png">
