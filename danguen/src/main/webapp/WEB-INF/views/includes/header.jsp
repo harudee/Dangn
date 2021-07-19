@@ -63,14 +63,19 @@
 
 			<section class="fixed-bar-menu">
 				<sec:authorize access="isAnonymous()">
-					<a href="/login" target="_blank">
+					<a href="/user/login" target="_blank">
 						<button class="chat-button">
 							<span class="button-text">로그인</span>
 						</button>
 					</a>
-					<a href="/register" target="_blank">
+					<a href="/user/register" target="_blank">
 						<button class="chat-button">
 							<span class="button-text">회원가입</span>
+						</button>
+					</a>
+					<a href="/hello/chat" target="_blank">
+						<button class="chat-button">
+							<span class="button-text">채팅하기</span>
 						</button>
 					</a>
 				</sec:authorize>

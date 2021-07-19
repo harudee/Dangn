@@ -4,7 +4,8 @@
 <div class="container">
 	<h1>로그인</h1>
 		<br>
-	<form action="/loginProc" method="post">
+	<form action="/login" method="post">
+	
 		<div class="form-group">
 			<label for="username">아이디</label> <input type="text"
 				class="form-control" id="username" placeholder="아이디를 입력해 주세요"
