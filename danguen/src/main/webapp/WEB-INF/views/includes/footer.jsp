@@ -45,7 +45,7 @@
         <ul class="copyright-list copyright-list-light">
           <li class="copyright-list-item"><address>부산광역시 부산진구 부전2동 중앙대로 708 5층 502호 (당근서비스)</address></li>
           <li class="copyright-list-item">빅데이터반</li>
-          <li class="copyright-list-item">김하경 정진우 차세환</li>
+          <li class="copyright-list-item">김하경 정진우</li>
         </ul>
         <div id="social">
           <ul class="social-list">

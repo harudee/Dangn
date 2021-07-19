@@ -7,16 +7,26 @@ import Insert from "./pages/prouct/Insert";
 import List from "./pages/prouct/List";
 import Update from "./pages/prouct/Update";
 import View from "./pages/prouct/View";
+import JoinPage from "./pages/user/JoinPage";
+import LoginPage from "./pages/user/LoginPage";
+import UpdateUser from "./pages/user/UpdateUser";
 
 function App() {
   return (
     <div>
       <Header />
+      {/* product */}
       <Route path="/" exact={true} component={Home} />
-      <Route path="/product/list" exact={true} component={List} />
+      <Route path="/list" exact={true} component={List} />
       <Route path="/product/insert" exact={true} component={Insert} />
-      <Route path="/product/view/:itemid" exact={true} component={View} />
+      <Route path="/view/:itemid" exact={true} component={View} />
       <Route path="/product/update/:itemid" exact={true} component={Update} />
+
+      {/* user */}
+      <Route path="/register" exact={true} component={JoinPage} />
+      <Route path="/login" exact={true} component={LoginPage} />
+      <Route path="/user/update" exact={true} component={UpdateUser} />
+
       <Footer />
     </div>
   );

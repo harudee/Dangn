@@ -17,41 +17,42 @@ import com.cos.danguen.service.ProductService;
 
 import lombok.RequiredArgsConstructor;
 
+
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/product/*")
+@RequestMapping
 public class ProductController {
 
 	private final ProductRepository productRepository;
 	private final ProductService productService;
 	
-	@CrossOrigin
-	@GetMapping("list")
+	
+	@GetMapping("/list")
 	public CMRespDTO<?> findAll(){
 		return new CMRespDTO<>(1,"ok",productRepository.findAll());
 	}
 
-	@CrossOrigin
-	@PostMapping("/insert")
+	
+	@PostMapping("/product/insert")
 	public CMRespDTO<?> insert(@RequestBody Product product) {
 		return new CMRespDTO<>(1, "ok", productRepository.save(product));
 	}
 
-	@CrossOrigin
+	
 	@GetMapping("/view/{id}")
 	public CMRespDTO<?> view(@PathVariable Long id) {
 		return new CMRespDTO<>(1, "ok", productService.findById(id));
 	}
 
-	@CrossOrigin
-	@DeleteMapping("/delete/{id}")
+	
+	@DeleteMapping("/product/delete/{id}")
 	public CMRespDTO<?> delete(@PathVariable Long id) {
 		productRepository.deleteById(id);
 		return new CMRespDTO<>(1, "ok", null);
 	}
 	
-	@CrossOrigin
-	@PutMapping("/update/{id}")
+	
+	@PutMapping("/product/update/{id}")
 	public CMRespDTO<?> update(@PathVariable Long id, @RequestBody Product product) {
 		
 		System.out.println("update 실행되냐");//controller 타는지 확인

@@ -1,7 +1,7 @@
 import React from "react";
 
-const Update = () => {
+const UpdateUser = () => {
   return <div>Update</div>;
 };
 
-export default Update;
+export default UpdateUser;
