@@ -31,6 +31,16 @@ public class UserController {
 	
 	private final HttpSession session;
 	
+
+	//asdad
+	
+	//회원수정 화면
+	@GetMapping("update/{id}")
+	public String update(Model model, @PathVariable Long id) {
+		model.addAttribute("user", userService.detail(id));
+		return "/user/update";
+	}
+
 	//메인페이지 http://localhost:7777/
 		@GetMapping("/")
 		public String home() {
@@ -83,6 +93,7 @@ public class UserController {
 			userService.delete(id);
 			return "success";
 		}
+
 	
 	
 }
