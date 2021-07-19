@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<section class="home-main-section">
 	<form action="insert" method="post">
 		<div class="form-group">
 			<label for="itemname">상품명:</label> <input type="text"
@@ -33,7 +34,7 @@
 		</div>
 		<button type="submit" class="btn btn-primary">상품등록</button>
 	</form>
-
+</section>
 
 </body>
 </html>
