@@ -34,6 +34,6 @@ public class Product {
 	private List<Comment> comments;
 	
 	@ManyToOne
-	@JoinColumn(name="user")
+	@JoinColumn(name="username")
 	private User user;
 }

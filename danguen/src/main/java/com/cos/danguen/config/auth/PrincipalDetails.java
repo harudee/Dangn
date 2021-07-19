@@ -12,15 +12,20 @@ import lombok.Data;
 
 @Data
 public class PrincipalDetails implements UserDetails {
+	
 	private User user;
 	
 	public PrincipalDetails(User user) {
 		this.user = user;
 	}
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		Collection<GrantedAuthority> collect = new ArrayList<GrantedAuthority>();
-		return collect;
+		Collection<GrantedAuthority> authorities = new ArrayList<>();
+		user.getRoleList().forEach(r->{
+			authorities.add(()->r);
+		});
+		return authorities;
 	}
 
 	@Override
