@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Route } from "react-router-dom";
 import Footer from "./components/includes/Footer";
 import Header from "./components/includes/Header";
+import chat from "./pages/chat/chat";
 import Home from "./pages/Home";
 import Insert from "./pages/prouct/Insert";
 import List from "./pages/prouct/List";
@@ -22,10 +23,14 @@ function App() {
       <Route path="/view/:itemid" exact={true} component={View} />
       <Route path="/product/update/:itemid" exact={true} component={Update} />
 
+
       {/* user */}
       <Route path="/register" exact={true} component={JoinPage} />
       <Route path="/login" exact={true} component={LoginPage} />
       <Route path="/user/update" exact={true} component={UpdateUser} />
+
+      {/* chat */}
+      <Route path="/hello/chat" exact={true} component={chat} />
 
       <Footer />
     </div>

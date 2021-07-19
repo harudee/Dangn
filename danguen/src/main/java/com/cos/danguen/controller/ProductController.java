@@ -1,5 +1,6 @@
 package com.cos.danguen.controller;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cos.danguen.config.auth.PrincipalDetails;
 import com.cos.danguen.dto.CMRespDTO;
 import com.cos.danguen.model.Product;
+import com.cos.danguen.model.User;
 import com.cos.danguen.repository.ProductRepository;
 import com.cos.danguen.service.ProductService;
 
@@ -32,10 +35,12 @@ public class ProductController {
 		return new CMRespDTO<>(1,"ok",productRepository.findAll());
 	}
 
+
 	
 	@PostMapping("/product/insert")
 	public CMRespDTO<?> insert(@RequestBody Product product) {
 		return new CMRespDTO<>(1, "ok", productRepository.save(product));
+
 	}
 
 	
@@ -51,11 +56,11 @@ public class ProductController {
 		return new CMRespDTO<>(1, "ok", null);
 	}
 	
-	
-	@PutMapping("/product/update/{id}")
+
+	@CrossOrigin
+	@PutMapping("product/update/{id}")
 	public CMRespDTO<?> update(@PathVariable Long id, @RequestBody Product product) {
-		
-		System.out.println("update 실행되냐");//controller 타는지 확인
+
 		Product productEntity = productRepository.findById(id).get();
 		
 		productEntity.setItemname(product.getItemname());

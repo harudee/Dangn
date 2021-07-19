@@ -22,16 +22,18 @@
 			</tr>
 		</thead>
 		<tbody>
+		
 			<c:forEach items="${product}" var="product" varStatus="st">
 				<tr>
 					<td>${product.itemid}</td>
-					<td>${product.user}</td>
+					<td>${product.user.username}</td>
 					<td><a href="/product/view/${product.itemid}">${product.itemname}</a></td>
 					<td>${product.content}</td>
 					<td>${product.price}</td>
 					<td>${product.replycnt}</td>
 				</tr>
 			</c:forEach>
+		
 		</tbody>
 	</table>
 	</section>

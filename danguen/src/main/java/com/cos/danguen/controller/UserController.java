@@ -70,6 +70,7 @@ public class UserController {
 		return new ResponseEntity<>(new CMRespDTO<User>(1, "login success", user), HttpStatus.OK);
 	}
 	
+
 	
 //	//회원수정 화면
 //	@GetMapping("update/{id}")
@@ -93,7 +94,32 @@ public class UserController {
 	//회원삭제
 	@DeleteMapping("/user/delete/{id}")
 	public CMRespDTO<?> delete(@PathVariable Long id) {
-		userService.delete(id);
-		return new CMRespDTO<User>(1, "delete ok", null);
-	}
+
+    //main
+// 	//회원수정 화면
+// 	@GetMapping("update/{id}")
+// 	public String update(Model model, @PathVariable Long id) {
+		
+// 		model.addAttribute("user", userService.detail(id));
+// 		return "/user/update";
+// 	}
+	
+// 	@PutMapping("update/{id}")
+// 	@ResponseBody
+// 	public String update(@RequestBody User user ,@PathVariable Long id ,String password) {
+// 		String rawPassword = user.getPassword();
+// 		String encPassord = encoder.encode(rawPassword);
+// 		user.setPassword(encPassord);
+// 		userService.update(user);
+// 		return "success";
+// 	}
+	
+// 	@DeleteMapping("delete/{id}")
+// 	@ResponseBody
+// 	public String delete(@PathVariable Long id) {
+		
+
+// 		userService.delete(id);
+// 		return new CMRespDTO<User>(1, "delete ok", null);
+// 	}
 }
