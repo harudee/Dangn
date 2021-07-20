@@ -23,45 +23,58 @@
 </head>
 <body>
 	<div id="container" class="container"> 
-	<span id="yourName">
-			<input type="hidden" id="userName" name="userName" value="${principal.user.username}"/>
-			<button onclick="chatName()" id="sendBtn">연결하기</button>
-			
-	</span>
-	
-		
+
 		<h1>채팅</h1>
-		<table class="inputTable">
-			<tr>
-				<th>상품명:</th>
-				<th>판매자명:</th>
-				<th>상품가격:</th>
-			</tr>
-			<tr>
-				<th>${product.itemname }</th>
-				<th>${product.user.username }</th>
-				<th>${product.price }</th>
-			</tr>
-		</table>
+		<div class="card">
+			<div class="card-container">
+				<img src="/resources/images/${product.fileName}"/>
+				<div class="content-container">
+					<h4>상품명:</h4><p>${product.itemname}</p>&nbsp;&nbsp;&nbsp;
+					<h4>판매자명:</h4><p>${product.user.username}</p>
+					<h4>상품가격:</h4><p>${product.price}</p>
+				</div>
+			</div>
+		</div>
+		
 		<input type="hidden" id="sessionId" value="" />
 		
-		<div id="chating" class="chating">
 		
+		<div class="chatroom" id="chatroom">
+			<div id="chating" class="chating">
+			</div>
+			
+			<span id="yourName">
+				<input type="hidden" id="userName" name="userName" value="${principal.user.username}"/>
+				<button onclick="chatName()" id="sendBtn">연결하기</button>
+			</span>
+			
+			<div id="yourMsg">
+				<table class="inputTable">
+					<tr>
+						<th>메시지</th>
+						<th><input id="chatting" placeholder="보내실 메시지를 입력하세요."></th>
+						<th><button onclick="send()" id="sendBtn">보내기</button></th>
+					</tr>
+				</table>
+			</div>
 		</div>
-		<div id="yourMsg">
-			<table class="inputTable">
-				<tr>
-					<th>메시지</th>
-					<th><input id="chatting" placeholder="보내실 메시지를 입력하세요."></th>
-					<th><button onclick="send()" id="sendBtn">보내기</button></th>
-				</tr>
-			</table>
-		</div>
+		
 	</div>
 </body>
 <script type="text/javascript">
 	var ws;
 
+	var now = new Date();
+	var hour = now.getHours();
+	var min = now.getMinutes();
+	var str = "";
+	
+	if(hour < 12){
+		str = "오전";
+	}else{
+		str = "오후";
+	}
+	
 	function wsOpen(){
 		ws = new WebSocket("ws://" + location.host + "/chating");
 		wsEvt();
@@ -84,9 +97,9 @@
 					}
 				}else if(d.type == "message"){
 					if(d.sessionId == $("#sessionId").val()){
-						$("#chating").append("<p class='me'>나 :" + d.msg + "</p>");	
+						$("#chating").append("<p class='me'>나 :" + d.msg + "</p>" + str + ":" + hour + "시" + min + "분");	
 					}else{
-						$("#chating").append("<p class='others'>" + d.userName + " :" + d.msg + "</p>");
+						$("#chating").append("<p class='others'>" + d.userName + " :" + d.msg + "</p>" + str + ":" + hour + "시" + min + "분");
 					}
 						
 				}else{

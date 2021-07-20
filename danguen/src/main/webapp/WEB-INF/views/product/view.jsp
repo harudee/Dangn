@@ -112,7 +112,6 @@
 	});//글 삭제
 
 	$("#btnChat").click(function() {
-		alert("채팅");
 		location.href = "/hello/chat";
 	})//채팅
 	
