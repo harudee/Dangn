@@ -36,10 +36,8 @@ public class CommentController {
 		Product p = new Product();
 		p.setItemid(itemid);
 		
-		System.out.println(principal.getUser());
-		
-		comment.setUser(principal.getUser());
-		
+		comment.setUser(principal.getUser()); //error : principal is null..... 
+		comment.setProduct(p);
 		
 		System.out.println(comment);
 		
@@ -47,12 +45,12 @@ public class CommentController {
 		return new ResponseEntity<String>("success", HttpStatus.OK);
 	}
 	
-//	//댓글리스트
-//	@GetMapping("commentList/{itemid}")
-//	public List<Comment> list(@PathVariable Long itemid){
-//		List<Comment> clists = cService.list(itemid);
-//		return clists;
-//	}
+	//댓글리스트
+	@GetMapping("commentList/{itemid}")
+	public List<Comment> list(@PathVariable Long itemid){
+		List<Comment> clists = cService.list(itemid);
+		return clists;
+	}
 	
 	
 

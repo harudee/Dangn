@@ -83,6 +83,9 @@ public class ProductController {
 	public String detail() {
 		return "/product/detail";
 	}
+	
+	
+	
 
 //	@GetMapping("list")
 //	public String list(Model model) {

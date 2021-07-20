@@ -38,7 +38,9 @@ public class ProductService {
 	@Transactional
 	public Product findById(Long id) {
 	Product product =	productrepository.findById(id).get();
-//	product.setReplycnt(product.getReplycnt()+1);
+	//조회수 증가
+	product.setHitcount(product.getHitcount()+1);
+	
 	return product;
 	}
 	

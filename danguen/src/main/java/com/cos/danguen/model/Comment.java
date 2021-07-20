@@ -10,7 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.data.annotation.CreatedDate;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -29,7 +28,6 @@ public class Comment {
     @JoinColumn(name="id")
 	private User user; // 사용자
 	
-	private String title; // 제목
 	private String content; // 내용
 	
 	@CreationTimestamp
