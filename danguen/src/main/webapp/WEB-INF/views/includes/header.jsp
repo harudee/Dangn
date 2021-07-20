@@ -31,8 +31,7 @@
 
 <link rel="stylesheet" media="all"
 	href="https://d1unjqcospf8gs.cloudfront.net/assets/home/home-8695fc9a40c1263ffd9b650de5ca008a147a650c5c559cac4c2eecb262b6baef.css" />
-<script
-	src="https://d1unjqcospf8gs.cloudfront.net/assets/home/home-1f8c8a88a4cc8f20c3844e533b342d14553ebf3427cc2b945b7f37c1f7433ec9.js"></script>
+
 
 <link rel="apple-touch-icon" sizes="192x192"
 	href="/images/icons/daangn_logo_192.png">
@@ -48,19 +47,20 @@
 					src="https://d1unjqcospf8gs.cloudfront.net/assets/home/base/header/logo-basic-24b18257ac4ef693c02233bf21e9cb7ecbf43ebd8d5b40c24d99e14094a44c81.svg" />
 				</a>
 			</h1>
-
+		<form action="product/search" method="post">
 			<section id="fixed-bar-search">
 				<div class="search-input-wrap">
 					<span class="sr-only">검색</span> <input type="text"
 						name="header-search-input" id="header-search-input"
-						class="fixed-search-input" placeholder="동네 이름, 물품명 등을 검색해보세요!" />
-					<button id="header-search-button">
-						<img class="fixed-search-icon" alt="Search"
-							src="https://d1unjqcospf8gs.cloudfront.net/assets/home/base/header/search-icon-7008edd4f9aaa32188f55e65258f1c1905d7a9d1a3ca2a07ae809b5535380f14.svg" />
+						class="fixed-search-input text-m"
+						placeholder="동네 이름, 물품명 등을 검색해보세요!" />
+					<button id="header-search-button" type="submit">
+						<img class="fixed-search-icon" alt="Search" style="width:auto; height:auto;"
+							src="/images/sc.svg" />
 					</button>
 				</div>
 			</section>
-
+		</form>
 			<section class="fixed-bar-menu">
 				<sec:authorize access="isAnonymous()">
 					<a href="/login" target="_blank">
@@ -78,28 +78,48 @@
 
 			<section class="fixed-bar-menu">
 				<sec:authorize access="isAuthenticated()">
-					<a href="/update/${principal.user.id}" target="_blank">
-						<button class="chat-button">
-							<span class="button-text">회원정보수정</span>
-						</button>
-					</a>
-					<a href="/logout" target="_blank">
-						<button class="chat-button">
-							<span class="button-text">로그아웃(<sec:authentication
-									property="principal.user.username" />)
-							</span>
-						</button>
-					</a>
-					<a href="/product/insert" target="_blank"><button
-							class="chat-button">
-							<span class="button-text">상품등록</span>
-						</button></a>
+					<div class="btn-group">
+						
+						<div class="btn-group">
+							<button class="chat-button dropdown-toggle"
+								data-toggle="dropdown">
+								<span class="button-text">나의 당근</span>
+							</button>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="/update/${principal.user.id}"
+									target="_blank">
+									<button class="chat-button">
+										<span class="button-text">회원정보수정</span>
+									</button>
+								</a> <a class="dropdown-item" href="/logout" target="_blank">
+									<button class="chat-button">
+										<span class="button-text">로그아웃(<sec:authentication
+												property="principal.user.username" />)
+										</span>
+									</button>
+								</a>
+							</div>
+						</div>
 
-					<a href="/product/list" target="_blank"><button
-							class="chat-button">
-							<span class="button-text">상품목록</span>
-						</button></a>
-
+						<div class="btn-group">
+							<button class="chat-button dropdown-toggle"
+								data-toggle="dropdown">
+								<span class="button-text">중고거래</span>
+							</button>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="/product/insert" target="_blank">
+									<button class="chat-button">
+										<span class="button-text">상품등록</span>
+									</button>
+								</a> 
+								<a class="dropdown-item" href="/product/list" target="_blank">
+									<button class="chat-button">
+										<span class="button-text">상품목록</span>
+									</button>
+								</a>
+							</div>
+						</div>
+					</div>
 				</sec:authorize>
 			</section>
 		</div>

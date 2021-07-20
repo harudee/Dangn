@@ -1,6 +1,7 @@
 package com.cos.danguen.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -32,13 +33,15 @@ public class ProductService {
 	public void insert(Product product, User user) {
 		product.setUser(user);
 		productrepository.save(product);
-		
 	}
+	
 	
 	@Transactional
 	public Product findById(Long id) {
 	Product product =	productrepository.findById(id).get();
-//	product.setReplycnt(product.getReplycnt()+1);
+	//조회수 증가
+	product.setHitcount(product.getHitcount()+1);
+	
 	return product;
 	}
 	
@@ -60,4 +63,12 @@ public class ProductService {
 		p.setContent(product.getContent());
 		p.setPrice(product.getPrice());
 	}
+	
+	@Transactional
+	public List<Product> search(String keyword) {
+		return productrepository.findProducts(keyword);
+		
+	}
+	
+
 }

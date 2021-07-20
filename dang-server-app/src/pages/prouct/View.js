@@ -12,7 +12,7 @@ const View = ({ match, props }) => {
   useEffect(() => {
     axios({
       method: "GET",
-      url: "http://localhost:7777/product/view/" + itemid,
+      url: "http://localhost:7777/view/" + itemid,
     })
       .then((res) => {
         console.log(res);
@@ -56,7 +56,7 @@ const View = ({ match, props }) => {
 
           <Link
             to={`/product/list`}
-            type="button"
+            type="submit"
             className="btn btn-danger"
             onClick={deleteOne}
           >
@@ -67,6 +67,12 @@ const View = ({ match, props }) => {
             className="btn btn-info"
           >
             수정
+          </Link>
+          <Link
+            to={`/hello/chat`}
+            className="btn btn-info"
+          >
+            채팅으로 거래하기
           </Link>
         </Card.Body>
       </Card>

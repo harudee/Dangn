@@ -8,7 +8,7 @@ const List = () => {
   useEffect(() => {
     axios({
       method: "GET",
-      url: "http://localhost:7777/product/list",
+      url: "http://localhost:7777/list",
     })
       .then((res) => {
         setProducts(res.data.data);

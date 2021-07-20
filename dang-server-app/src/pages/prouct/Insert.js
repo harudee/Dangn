@@ -8,8 +8,6 @@ const Insert = (props) => {
     price: "",
   });
 
-  console.log(productDto);
-
   const changeValue = (e) => {
     setProductDto({
       ...productDto,
@@ -28,7 +26,7 @@ const Insert = (props) => {
     })
       .then((res) => {
         console.log(res);
-        props.history.push("/product/list");
+        props.history.push("/list");
       })
       .catch((error) => {
         alert("등록 실패");

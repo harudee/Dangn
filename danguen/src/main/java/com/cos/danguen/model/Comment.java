@@ -9,6 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.CreationTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Data;
 
 @Data
@@ -19,11 +23,15 @@ public class Comment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long commentid; // 댓글번호
+	
 	@ManyToOne
     @JoinColumn(name="id")
 	private User user; // 사용자
-	private String title; // 제목
+	
 	private String content; // 내용
+	
+	@CreationTimestamp
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date regdate; // 날짜
 	@ManyToOne
     @JoinColumn(name="itemid")

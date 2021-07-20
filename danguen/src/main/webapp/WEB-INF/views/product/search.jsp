@@ -9,7 +9,7 @@
 
 			<section class="cards-wrap">
 
-				<c:forEach items="${product}" var="product" varStatus="st">
+				<c:forEach items="${products}" var="product" varStatus="st">
 
 					<article class="card-top ">
 						<div class="card-photo ">

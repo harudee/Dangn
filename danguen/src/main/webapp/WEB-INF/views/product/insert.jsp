@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<section id="content" class="text-m">
 	<form action="insert" method="post">
 		<div class="form-group">
 			<label for="itemname">상품명:</label> <input type="text"
@@ -19,8 +20,8 @@
 			<label for="username">판매자명:</label>
 			<input type="text" id="username" name="username"
 				class="form-control" value="${principal.user.username}" readonly="readonly"/>
-
 		</div>
+		
 		<div class="form-group">
 			<label for="content">상품내용:</label>
 			<textarea id="content" name="content" id="content"
@@ -33,7 +34,7 @@
 		</div>
 		<button type="submit" class="btn btn-primary">상품등록</button>
 	</form>
-
+</section>
 
 </body>
 </html>
