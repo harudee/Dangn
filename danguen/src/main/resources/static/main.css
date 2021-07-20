@@ -54,15 +54,8 @@
 			border-color:orange;
 		}
 
-
-		#yourMsg{
-			display: none;
-			border:1px solid gray;
-			height:120px;
-		}
-
-
 		#yourName{
+			
 			border:1px solid gray;
 			height:120px;
 		}

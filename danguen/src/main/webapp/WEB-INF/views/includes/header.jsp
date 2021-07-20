@@ -56,7 +56,7 @@
 						placeholder="동네 이름, 물품명 등을 검색해보세요!" />
 					<button id="header-search-button" type="submit">
 						<img class="fixed-search-icon" alt="Search" style="width:auto; height:auto;"
-							src="images/sc.svg" />
+							src="/images/sc.svg" />
 					</button>
 				</div>
 			</section>
@@ -79,11 +79,7 @@
 			<section class="fixed-bar-menu">
 				<sec:authorize access="isAuthenticated()">
 					<div class="btn-group">
-						<a href="/hello/chat" target="_blank">
-							<button class="chat-button ">
-								<span class="button-text">채팅하기</span>
-							</button>
-						</a>
+						
 						<div class="btn-group">
 							<button class="chat-button dropdown-toggle"
 								data-toggle="dropdown">

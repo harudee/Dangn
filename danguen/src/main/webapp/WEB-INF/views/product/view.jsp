@@ -44,12 +44,14 @@
 		<c:when test="${product.user.id eq principal.user.id}">
 			<button type="button" id="btnUpdate" class="btn btn-primary  btn-sm">수정</button>
 			<button type="button" id="btnDelete" class="btn btn-danger  btn-sm">삭제</button>
+			<a href="hello/chat/${product.itemid}">
 			<button type="button" id="btnChat" class="btn btn-danger  btn-sm">채팅으로
-				거래하기</button>
+				거래하기</button></a>
 		</c:when>
 		<c:otherwise>
+			<a href="hello/chat/${product.itemid}">
 			<button type="button" id="btnChat" class="btn btn-danger  btn-sm">채팅으로
-				거래하기</button>
+				거래하기</button></a>
 		</c:otherwise>
 	</c:choose>
 
