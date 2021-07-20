@@ -100,6 +100,7 @@ public class UserController {
 		model.addAttribute("user", userService.detail(id));
 		return "/user/update";
 	}
+<<<<<<< Updated upstream
 	
 	@PutMapping("update/{id}")
 	@ResponseBody
@@ -114,6 +115,49 @@ public class UserController {
 	@DeleteMapping("delete/{id}")
 	@ResponseBody
 	public String delete(@PathVariable Long id) {
+=======
+
+	//메인페이지 http://localhost:7777/
+		@GetMapping("/")
+		public String home() {
+			return "home";
+		}
+		
+		//회원가입화면 http://localhost:7777/register
+		@GetMapping("register")
+		public String register() {
+			return "/user/register";
+		}
+		
+		//회원가입 실행
+		@PostMapping("register")
+		@ResponseBody
+		public String register(@RequestBody User user) {
+			if(userRepository.findByUsername(user.getUsername()) != null)
+				return "fail";
+			userService.registerUser(user);
+			return "success";
+		}
+		
+		//로그인 화면
+		@GetMapping("login")
+		public String login() {
+			return "/user/login";
+		}
+		
+		
+		
+		@PutMapping("update/{id}")
+		@ResponseBody
+		public String update(@RequestBody User user/* ,@PathVariable Long id */,String password) {
+			String rawPassword = user.getPassword();
+			String encPassord = encoder.encode(rawPassword);
+			user.setPassword(encPassord);
+//			user.setId(id);
+			userService.update(user);
+			return "success";
+		}
+>>>>>>> Stashed changes
 		
 		userService.delete(id);
 		return "success";

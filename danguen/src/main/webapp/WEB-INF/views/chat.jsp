@@ -15,9 +15,15 @@
 </head>
 <body>
 	<div id="container" class="container">
+<<<<<<< Updated upstream
 	
 		<h1><img src="/images/logo.jpg" />채팅</h1>
 		<input type="hidden" id="sessionId" value="">
+=======
+		<h1>채팅</h1>
+		
+		<input type="hidden" id="sessionId" value="${principal.id }">
+>>>>>>> Stashed changes
 		
 		<div id="chating" class="chating">
 		</div>

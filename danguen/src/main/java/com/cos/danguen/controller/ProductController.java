@@ -1,5 +1,9 @@
 package com.cos.danguen.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -72,6 +76,7 @@ public class ProductController {
 		return new CMRespDTO<>(1, "ok", productRepository.save(productEntity));
 	}
 
+<<<<<<< Updated upstream
 	@GetMapping("list")
 	   public String list(Model model) {
 	      model.addAttribute("product", productService.list());
@@ -129,5 +134,69 @@ public class ProductController {
 	   }
 >>>>>>> Stashed changes
 	
+=======
+	@PostMapping("search")
+	public String search(HttpServletRequest request, Model model, String keyword) {
+		System.out.println("search Controller 불러옴");
+		keyword = request.getParameter("header-search-input");
+		System.out.println(keyword);
+		model.addAttribute("products",productService.search(keyword));
+		System.out.println(productService.search(keyword));
+		return "/product/search";
+		 
+	}
+//	@GetMapping("list")
+//	public String list(Model model) {
+//		model.addAttribute("product", productService.list());
+//		model.addAttribute("count", productService.count());
+//		return "/product/list";
+//	}
+//	
+//	@GetMapping("insert")
+//	@PreAuthorize("isAuthenticated()")
+//	public String insert() {
+//		return "/product/insert";
+//	}
+
+//	@GetMapping("/list")
+//	public CMRespDTO<?> findAll(){
+//		return new CMRespDTO<>(1,"ok",productRepository.findAll());
+//	}
+//
+//
+//	
+//	@PostMapping("/product/insert")
+//	public CMRespDTO<?> insert(@RequestBody Product product) {
+//		return new CMRespDTO<>(1, "ok", productRepository.save(product));
+//
+//	}
+//
+//	
+//	@GetMapping("/view/{id}")
+//	public CMRespDTO<?> view(@PathVariable Long id) {
+//		return new CMRespDTO<>(1, "ok", productService.findById(id));
+//	}
+//
+//	
+//	@DeleteMapping("/product/delete/{id}")
+//	public CMRespDTO<?> delete(@PathVariable Long id) {
+//		productRepository.deleteById(id);
+//		return new CMRespDTO<>(1, "ok", null);
+//	}
+//	
+//
+//	@CrossOrigin
+//	@PutMapping("product/update/{id}")
+//	public CMRespDTO<?> update(@PathVariable Long id, @RequestBody Product product) {
+//
+//		Product productEntity = productRepository.findById(id).get();
+//		
+//		productEntity.setItemname(product.getItemname());
+//		productEntity.setContent(product.getContent());
+//		productEntity.setPrice(product.getPrice());
+//		
+//		return new CMRespDTO<>(1, "ok", productRepository.save(productEntity));
+//	}
+>>>>>>> Stashed changes
 
 }

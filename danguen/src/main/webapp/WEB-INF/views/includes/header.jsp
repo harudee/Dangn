@@ -48,19 +48,20 @@
 					src="https://d1unjqcospf8gs.cloudfront.net/assets/home/base/header/logo-basic-24b18257ac4ef693c02233bf21e9cb7ecbf43ebd8d5b40c24d99e14094a44c81.svg" />
 				</a>
 			</h1>
-
+		<form action="product/search" method="post">
 			<section id="fixed-bar-search">
 				<div class="search-input-wrap">
 					<span class="sr-only">검색</span> <input type="text"
 						name="header-search-input" id="header-search-input"
 						class="fixed-search-input" placeholder="동네 이름, 물품명 등을 검색해보세요!" />
-					<button id="header-search-button">
+					<button id="header-search-button" type="submit">
 						<img class="fixed-search-icon" alt="Search"
-							src="https://d1unjqcospf8gs.cloudfront.net/assets/home/base/header/search-icon-7008edd4f9aaa32188f55e65258f1c1905d7a9d1a3ca2a07ae809b5535380f14.svg" />
+							src="/images/sc.svg" style="width:45px; height:40px;"/>
 					</button>
 				</div>
 			</section>
-
+		</form>
+		
 			<section class="fixed-bar-menu">
 				<sec:authorize access="isAnonymous()">
 					<a href="/user/login" target="_blank">
@@ -113,3 +114,6 @@
 			</section>
 		</div>
 	</header>
+	<script>
+		
+	</script>
