@@ -62,4 +62,11 @@ public class ProductService {
 		p.setContent(product.getContent());
 		p.setPrice(product.getPrice());
 	}
+	
+	@Transactional
+	public List<Product> search(String keyword) {
+		return productrepository.findProducts(keyword);
+		
+	}
+
 }
