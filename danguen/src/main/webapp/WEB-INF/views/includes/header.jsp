@@ -52,7 +52,8 @@
 				<div class="search-input-wrap">
 					<span class="sr-only">검색</span> <input type="text"
 						name="header-search-input" id="header-search-input"
-						class="fixed-search-input" placeholder="동네 이름, 물품명 등을 검색해보세요!" />
+						class="fixed-search-input text-m"
+						placeholder="동네 이름, 물품명 등을 검색해보세요!" />
 					<button id="header-search-button">
 						<img class="fixed-search-icon" alt="Search"
 							src="https://d1unjqcospf8gs.cloudfront.net/assets/home/base/header/search-icon-7008edd4f9aaa32188f55e65258f1c1905d7a9d1a3ca2a07ae809b5535380f14.svg" />
@@ -77,32 +78,52 @@
 
 			<section class="fixed-bar-menu">
 				<sec:authorize access="isAuthenticated()">
-					<a href="/update/${principal.user.id}" target="_blank">
-						<button class="chat-button">
-							<span class="button-text">회원정보수정</span>
-						</button>
-					</a>
-					<a href="/logout" target="_blank">
-						<button class="chat-button">
-							<span class="button-text">로그아웃(<sec:authentication
-									property="principal.user.username" />)
-							</span>
-						</button>
-					</a>
-					<a href="/product/insert" target="_blank"><button
-							class="chat-button">
-							<span class="button-text">상품등록</span>
-						</button></a>
+					<div class="btn-group">
+						<a href="/hello/chat" target="_blank">
+							<button class="chat-button ">
+								<span class="button-text">채팅하기</span>
+							</button>
+						</a>
+						<div class="btn-group">
+							<button class="chat-button dropdown-toggle"
+								data-toggle="dropdown">
+								<span class="button-text">나의 당근</span>
+							</button>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="/update/${principal.user.id}"
+									target="_blank">
+									<button class="chat-button">
+										<span class="button-text">회원정보수정</span>
+									</button>
+								</a> <a class="dropdown-item" href="/logout" target="_blank">
+									<button class="chat-button">
+										<span class="button-text">로그아웃(<sec:authentication
+												property="principal.user.username" />)
+										</span>
+									</button>
+								</a>
+							</div>
+						</div>
 
-					<a href="/product/list" target="_blank"><button
-							class="chat-button">
-							<span class="button-text">상품목록</span>
-						</button></a>
-						<a href="/hello/chat" target="_blank"><button
-							class="chat-button">
-							<span class="button-text">채팅하기</span>
-						</button></a>
-
+						<div class="btn-group">
+							<button class="chat-button dropdown-toggle"
+								data-toggle="dropdown">
+								<span class="button-text">중고거래</span>
+							</button>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="/product/insert" target="_blank">
+									<button class="chat-button">
+										<span class="button-text">상품등록</span>
+									</button>
+								</a> 
+								<a class="dropdown-item" href="/product/list" target="_blank">
+									<button class="chat-button">
+										<span class="button-text">상품목록</span>
+									</button>
+								</a>
+							</div>
+						</div>
+					</div>
 				</sec:authorize>
 			</section>
 		</div>

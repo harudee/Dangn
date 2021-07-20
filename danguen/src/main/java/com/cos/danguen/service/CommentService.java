@@ -24,18 +24,27 @@ public class CommentService {
 	@Transactional
 	public void insert(Comment comment) {
 		
-//		Optional<Product> p = productRepository.findById(comment.getProduct().getItemid());
-//		p.get().setReplycnt(p.get().getReplycnt()+1);
+		//product의 replycnt올리기 //^^? 왜 안돼...? : 왜냐면 replycnt가 null이니까 0으로 맞춰줘라
+		Optional<Product> p = productRepository.findById(comment.getProduct().getItemid());
+		p.get().setReplycnt(p.get().getReplycnt()+1);
 		
-		commentRepository.save(comment);
+		
+		//commentRepository.save(comment);
+		
+		//JPQL
+		commentRepository.commentInsert(
+				comment.getContent(), 
+				comment.getProduct().getItemid(), 
+				comment.getUser().getId()
+				);
+		
 	}
 	
-//	
-//	@Transactional
-//	public List<Comment> list(Long itemid) {
-//		return commentRepository.findbyItemid(itemid);
-//		
-//	}
+	@Transactional
+	public List<Comment> list(Long itemid) {
+		return commentRepository.findByItemid(itemid);
+		
+	}
 	
 	
 

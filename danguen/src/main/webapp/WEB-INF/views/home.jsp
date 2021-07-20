@@ -19,7 +19,7 @@
     <div class="home-main-image home-main-image-01"></div>
     <div>
       <h1 class="home-main-title">우리 동네<br>중고 직거래 마켓</h1>
-      <p class="text-m">
+      <p class=" text-m">
         동네 주민들과 가깝고 따뜻한 거래를
 
         지금 경험해보세요.
