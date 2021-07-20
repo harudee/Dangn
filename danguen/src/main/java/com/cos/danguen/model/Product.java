@@ -12,13 +12,17 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
+import javax.persistence.Table;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
 
 @Data
-@Entity(name = "product")
+@Entity
+@Table(name = "product")
 public class Product {
 	
 	// tablename : Product
@@ -45,4 +49,6 @@ public class Product {
 		this.hitcount = this.hitcount == null ? 0 : this.hitcount;
 		this.replycnt = this.replycnt == null ? 0 : this.replycnt;
 	}
+	
+	private String fileName;
 }

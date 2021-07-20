@@ -31,6 +31,7 @@ public class UserController {
 	
 	private final HttpSession session;
 	
+
 	//메인페이지 http://localhost:7777/
 		@GetMapping("/")
 		public String home() {
