@@ -143,5 +143,11 @@ public class ProductController {
 		 
 	}
 	
+	@GetMapping("view/hello/chat/{id}")
+	public String item(@PathVariable Long id, Model model) {
+		model.addAttribute("product", productService.findById(id));
+		System.out.println(id);
+		return "chat";
+	}
 
 }

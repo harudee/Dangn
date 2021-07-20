@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+    <%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+<sec:authorize access="isAuthenticated()">
+	<sec:authentication property="principal" var="principal" />
+</sec:authorize>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,21 +22,31 @@
 <!--     <script src="/app.js"></script> -->
 </head>
 <body>
-	<div id="container" class="container">
+	<div id="container" class="container"> 
+	<span id="yourName">
+			<input type="hidden" id="userName" name="userName" value="${principal.user.username}"/>
+			<button onclick="chatName()" id="sendBtn">연결하기</button>
+			
+	</span>
+	
+		
 		<h1>채팅</h1>
-		<input type="hidden" id="sessionId" value="">
+		<table class="inputTable">
+			<tr>
+				<th>상품명:</th>
+				<th>판매자명:</th>
+				<th>상품가격:</th>
+			</tr>
+			<tr>
+				<th>${product.itemname }</th>
+				<th>${product.user.username }</th>
+				<th>${product.price }</th>
+			</tr>
+		</table>
+		<input type="hidden" id="sessionId" value="" />
 		
 		<div id="chating" class="chating">
-		</div>
 		
-		<div id="yourName">
-			<table class="inputTable">
-				<tr>
-					<th>사용자명</th>
-					<th><input type="text" name="userName" id="userName"></th>
-					<th><button onclick="chatName()" id="startBtn">이름 등록</button></th>
-				</tr>
-			</table>
 		</div>
 		<div id="yourMsg">
 			<table class="inputTable">
@@ -83,17 +101,20 @@
 			}
 		});
 	}
-
+	
 	function chatName(){
+		
 		var userName = $("#userName").val();
+		
 		if(userName == null || userName.trim() == ""){
-			alert("사용자 이름을 입력해주세요.");
+			//alert("사용자 이름을 입력해주세요.");
 			$("#userName").focus();
 		}else{
 			wsOpen();
 			$("#yourName").hide();
 			$("#yourMsg").show();
 		}
+		
 	}
 
 	function send() {
@@ -105,6 +126,12 @@
 		}
 		ws.send(JSON.stringify(option))
 		$('#chatting').val("");
+	}
+	
+	function chatStart(){
+		
+		chatName();
+		send();
 	}
 </script>
 </html>

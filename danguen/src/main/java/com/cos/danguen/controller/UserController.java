@@ -28,7 +28,6 @@ public class UserController {
 	private final UserService userService;
 	private final UserRepository userRepository;
 	private final BCryptPasswordEncoder encoder;
-	
 	private final HttpSession session;
 	
 
@@ -84,6 +83,7 @@ public class UserController {
 			userService.delete(id);
 			return "success";
 		}
+
 	
 	
 }

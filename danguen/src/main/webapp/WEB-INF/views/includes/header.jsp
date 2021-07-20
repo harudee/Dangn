@@ -79,11 +79,7 @@
 			<section class="fixed-bar-menu">
 				<sec:authorize access="isAuthenticated()">
 					<div class="btn-group">
-						<a href="/hello/chat" target="_blank">
-							<button class="chat-button ">
-								<span class="button-text">채팅하기</span>
-							</button>
-						</a>
+						
 						<div class="btn-group">
 							<button class="chat-button dropdown-toggle"
 								data-toggle="dropdown">
