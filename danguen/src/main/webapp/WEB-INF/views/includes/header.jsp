@@ -55,8 +55,8 @@
 						class="fixed-search-input text-m"
 						placeholder="동네 이름, 물품명 등을 검색해보세요!" />
 					<button id="header-search-button" type="submit">
-						<img class="fixed-search-icon" alt="Search"
-							src="" />
+						<img class="fixed-search-icon" alt="Search" style="width:auto; height:auto;"
+							src="images/sc.svg" />
 					</button>
 				</div>
 			</section>

@@ -28,18 +28,8 @@ public class UserController {
 	private final UserService userService;
 	private final UserRepository userRepository;
 	private final BCryptPasswordEncoder encoder;
-	
 	private final HttpSession session;
 	
-
-	//asdad
-	
-	//회원수정 화면
-	@GetMapping("update/{id}")
-	public String update(Model model, @PathVariable Long id) {
-		model.addAttribute("user", userService.detail(id));
-		return "/user/update";
-	}
 
 	//메인페이지 http://localhost:7777/
 		@GetMapping("/")
