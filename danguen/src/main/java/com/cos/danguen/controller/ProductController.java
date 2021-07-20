@@ -1,5 +1,7 @@
 package com.cos.danguen.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -84,7 +86,16 @@ public class ProductController {
 		return "/product/detail";
 	}
 	
-	
+	@PostMapping("search")
+	public String search(HttpServletRequest request, Model model, String keyword) {
+		System.out.println("search Controller 불러옴");
+		keyword = request.getParameter("header-search-input");
+		System.out.println(keyword);
+		model.addAttribute("products",productService.search(keyword));
+		System.out.println(productService.search(keyword));
+		return "/product/search";
+		 
+	}
 	
 
 //	@GetMapping("list")
