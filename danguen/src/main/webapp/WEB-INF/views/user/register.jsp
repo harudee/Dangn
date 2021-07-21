@@ -5,10 +5,10 @@
 <section id="content" class="text-m">
 
 
-	<div class="container">
+	<div class="container border-round" >
 		<br /> <br /> <br /> <br />
 		<div>
-			<h1>회원 가입</h1>
+			<h1>🥕🥕회원 가입 해주세요 🥕🥕</h1>
 			<br>
 		</div>
 		<div class="form-group">
@@ -30,6 +30,8 @@
 		<button type="button" class="btn btn-primary"
 			onclick="location.href='/'">돌아가기</button>
 	</div>
+	</section>
+	
 	<script>
 		$("#btnJoin").click(function() {
 			if ($("#username").val() == "") {
