@@ -6,7 +6,7 @@
 	<div class="container">
 		<br /> <br /> <br /> <br />
 		<div>
-			<h1>로그인</h1>
+			<h1>🥕🥕로그인🥕🥕</h1>
 			<br>
 		</div>
 		<div class="description-sub">
@@ -24,6 +24,8 @@
 						name="password">
 				</div>
 				<button class="btn btn-primary">로그인</button>
+				<button type="button" class="btn btn-primary"
+			onclick="location.href='/register'">회원가입하러 가기</button>
 			</form>
 		</div>
 	</div>
