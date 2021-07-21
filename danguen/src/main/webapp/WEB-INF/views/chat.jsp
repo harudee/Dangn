@@ -30,7 +30,7 @@
 				<img src="/resources/images/${product.fileName}"/>
 				<div class="content-container">
 					<h4>상품명:</h4><p>${product.itemname}</p>&nbsp;&nbsp;&nbsp;
-					<h4>판매자명:</h4><p>${product.user.username}</p>
+					<h4>판매자명:</h4><p>${product.user.username}</p>&nbsp;&nbsp;&nbsp;
 					<h4>상품가격:</h4><p>${product.price}</p>
 				</div>
 			</div>
