@@ -21,7 +21,7 @@ public class ProductService {
 	
 	@Transactional
 	public List<Product> list(){
-		return productrepository.findAll();
+		return productrepository.selectAll();
 	}
 	
 	@Transactional

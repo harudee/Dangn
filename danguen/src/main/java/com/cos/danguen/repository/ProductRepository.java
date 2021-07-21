@@ -11,4 +11,7 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
 	
 	@Query(value = "SELECT * FROM product p WHERE p.itemname LIKE %:keyword%", nativeQuery=true)
 	public List<Product> findProducts(String keyword);
+	
+	@Query(value = "SELECT * FROM product p ORDER BY p.hitcount DESC", nativeQuery = true)
+	public List<Product> selectAll();
 }

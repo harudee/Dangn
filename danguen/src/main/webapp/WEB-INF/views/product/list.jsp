@@ -10,7 +10,6 @@
 			<section class="cards-wrap">
 
 				<c:forEach items="${product}" var="product" varStatus="st">
-
 					<article class="card-top ">
 						<div class="card-photo ">
 							<a class="card-link" href=""></a> <img alt="위닉스 제습기 16리터 팝니다"
