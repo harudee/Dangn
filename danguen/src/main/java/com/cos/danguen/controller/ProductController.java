@@ -1,5 +1,9 @@
 package com.cos.danguen.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.UUID;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -13,11 +17,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.cos.danguen.config.auth.PrincipalDetails;
+import com.cos.danguen.model.Files;
 import com.cos.danguen.model.Product;
 import com.cos.danguen.repository.ProductRepository;
+import com.cos.danguen.service.FilesService;
 import com.cos.danguen.service.ProductService;
 
 import lombok.RequiredArgsConstructor;
@@ -29,7 +37,8 @@ public class ProductController {
 
 	private final ProductRepository productRepository;
 	private final ProductService productService;
-
+	private final FilesService fileService;
+	
 	@GetMapping("list")
 	public String list(Model model) {
 		model.addAttribute("product", productService.list());
@@ -44,17 +53,54 @@ public class ProductController {
 	}
 
 	@PostMapping("insert")
-	public String insert(Product product, @AuthenticationPrincipal PrincipalDetails principal) {
+	public String insert(Product product, @AuthenticationPrincipal PrincipalDetails principal, @RequestParam("file") MultipartFile files, HttpServletRequest request) throws IOException {
 
-		productService.insert(product, principal.getUser());
-
+		try {
+			//files model 설정 ... 굳이 files VO를 안만들어도 될것 같은걸...?
+			String fileOriName = files.getOriginalFilename();
+			UUID uuid = UUID.randomUUID();
+			String filename = uuid+"_"+fileOriName;
+		
+			//product table에 파일이름넣어주기
+			product.setFileName(filename);
+			
+			//files 저장경로 정하기
+			String savePath = request.getSession().getServletContext().getRealPath("/");
+			savePath += "\\resources\\images\\";
+			
+			if(!new File(savePath).exists()) {
+				new File(savePath).mkdir();
+			}
+			
+			String fileUrl = savePath + filename;
+			files.transferTo(new File(fileUrl));
+			
+			//files table에 저장하기 //필요...할까..? 이게...? 
+			Files f = new Files();
+		
+			f.setFileOriName(fileOriName);
+			f.setFilename(filename);
+			f.setFileUrl(fileUrl);
+			
+			Long fileid = fileService.saveFile(f);
+		
+			//product insert
+			productService.insert(product, principal.getUser());
+			
+		}  catch (Exception e) {
+			e.printStackTrace();
+		}
 		return "redirect:/product/list";
 	}
 
 	@GetMapping("view/{id}")
 	public String view(@PathVariable Long id, Model model) {
 		Product product = productService.findById(id);
+		Files file = fileService.getFile(id);
+		
 		model.addAttribute("product", product);
+		model.addAttribute("files", file);
+		
 		return "/product/view";
 	}
 
@@ -103,58 +149,5 @@ public class ProductController {
 		System.out.println(id);
 		return "chat";
 	}
-
-//	@GetMapping("list")
-//	public String list(Model model) {
-//		model.addAttribute("product", productService.list());
-//		model.addAttribute("count", productService.count());
-//		return "/product/list";
-//	}
-//	
-//	@GetMapping("insert")
-//	@PreAuthorize("isAuthenticated()")
-//	public String insert() {
-//		return "/product/insert";
-//	}
-
-//	@GetMapping("/list")
-//	public CMRespDTO<?> findAll(){
-//		return new CMRespDTO<>(1,"ok",productRepository.findAll());
-//	}
-//
-//
-//	
-//	@PostMapping("/product/insert")
-//	public CMRespDTO<?> insert(@RequestBody Product product) {
-//		return new CMRespDTO<>(1, "ok", productRepository.save(product));
-//
-//	}
-//
-//	
-//	@GetMapping("/view/{id}")
-//	public CMRespDTO<?> view(@PathVariable Long id) {
-//		return new CMRespDTO<>(1, "ok", productService.findById(id));
-//	}
-//
-//	
-//	@DeleteMapping("/product/delete/{id}")
-//	public CMRespDTO<?> delete(@PathVariable Long id) {
-//		productRepository.deleteById(id);
-//		return new CMRespDTO<>(1, "ok", null);
-//	}
-//	
-//
-//	@CrossOrigin
-//	@PutMapping("product/update/{id}")
-//	public CMRespDTO<?> update(@PathVariable Long id, @RequestBody Product product) {
-//
-//		Product productEntity = productRepository.findById(id).get();
-//		
-//		productEntity.setItemname(product.getItemname());
-//		productEntity.setContent(product.getContent());
-//		productEntity.setPrice(product.getPrice());
-//		
-//		return new CMRespDTO<>(1, "ok", productRepository.save(productEntity));
-//	}
 
 }

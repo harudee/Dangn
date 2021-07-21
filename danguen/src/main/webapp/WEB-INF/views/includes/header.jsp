@@ -42,8 +42,8 @@
 	<header id="fixed-bar">
 		<div id="fixed-bar-wrap">
 			<h1 id="fixed-bar-logo-title">
-				<a href="/"> <span class="sr-only">당근마켓</span> <img
-					class="fixed-logo" alt="당근마켓"
+				<a href="/"> <span class="sr-only">당근마켓</span> 
+				<img class="fixed-logo" alt="당근마켓"
 					src="https://d1unjqcospf8gs.cloudfront.net/assets/home/base/header/logo-basic-24b18257ac4ef693c02233bf21e9cb7ecbf43ebd8d5b40c24d99e14094a44c81.svg" />
 				</a>
 			</h1>

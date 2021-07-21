@@ -18,19 +18,19 @@
 			color: #FFBB00;
 			border-left: 3px solid #FFBB00;
 			margin-bottom: 20px;
+			border-bottom: 3px solid #FFBB00;
 		}
 		.chating{
 			background-color: white;
 			width: 500px;
 			height: 500px;
 			overflow: auto;
-			border:1px solid black;
-			border-radius:10px;
+			
 		}
 		.chating p{
 			color:white;
 			text-align: left;
-			background-color:orange;
+			background-color:#ff7913;
 			border-radius:10px;
 			width:auto;
 			margin-right:auto;
@@ -42,30 +42,74 @@
 		
 		input{
 			width: 330px;
-			height: 100px;
-			border-color:orange;
+			height: 60px;
 		}
 		
 		
 		#yourMsg{
 			display: none;
-			border:1px solid gray;
-			height:120px;
-			border-color:orange;
+			border-top:1px solid black;
+			height:70px;
+			border-color:#97877a;
 		}
 
 		#yourName{
 			
 			border:1px solid gray;
-			height:120px;
+			height:70px;
+		}
+
+		#chatroom{
+			width:100%;
+			border:1px solid black;
+			border-radius:5px;
 		}
 
 		button{
 			width:100px;
 			height:40px;
 			border-radius:5px;
-			background-color:orange;
+			background-color:#ff7913;
 			color:white;
 
 		}
+		
+		card{
+			width:500px;
+			height:50px;
+			border-radius: 2px;
+			border:1px solid black;
+			
+		}
+		
+		img{
+			width:80px;
+			height:80px;
+		}
+		
+		.card-container{
+			width: 90%;
+			height:100px;
+			border : 1px solid white;
+			border-radius:5px;
+			margin: 0 auto;
+			display:flex;
+			flex-direction:row;
+			justify-content:space-between;
+			align-items:flex-evenly;
+		}
+		
+		.content-container{
+			width: 60%;
+			height:50px;
+			border : 1px solid white;
+			border-radius:5px;
+			display:flex;
+			flex-direction:row;
+			flex-wrap:wrap;
+			justify-content:center;
+			align-items:flex-start;
+		}
+		
+		
 		

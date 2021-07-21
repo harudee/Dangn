@@ -8,6 +8,9 @@
 	<article id="container">
 		<h3>Product View</h3>
 		<br />
+		
+		<img src="/resources/images/${product.fileName}" width="600" height="600">
+		
 		<div class="form-group">
 			<label for="itemid">상품번호:</label> <input type="text"
 				class="form-control" id="itemid" name="itemid"
@@ -109,7 +112,6 @@
 	});//글 삭제
 
 	$("#btnChat").click(function() {
-		alert("채팅");
 		location.href = "/hello/chat";
 	})//채팅
 	
