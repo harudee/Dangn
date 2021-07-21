@@ -68,15 +68,15 @@ public class UserController {
 		
 		@PutMapping("update/{id}")
 		@ResponseBody
-		public String update(@RequestBody User user/* ,@PathVariable Long id */,String password) {
+		public String update(@RequestBody User user, String password) {
 			String rawPassword = user.getPassword();
 			String encPassord = encoder.encode(rawPassword);
 			user.setPassword(encPassord);
-//			user.setId(id);
 			userService.update(user);
 			return "success";
 		}
 		
+		//회원 삭제
 		@DeleteMapping("delete/{id}")
 		@ResponseBody
 		public String delete(@PathVariable Long id) {

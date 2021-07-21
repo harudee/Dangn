@@ -6,11 +6,11 @@
 
 <section id="content">
 	<article id="container">
-		<h3>Product View</h3>
-		<br />
-		
-		<img src="/resources/images/${product.fileName}" width="600" height="600">
-		
+		<h1>${product.itemname}</h1>
+		<br /> <img src="/resources/images/${product.fileName}" width="600"
+			height="600">
+
+		<hr />
 		<div class="form-group">
 			<label for="itemid">상품번호:</label> <input type="text"
 				class="form-control" id="itemid" name="itemid"
@@ -40,7 +40,7 @@
 				class="form-control" id="price" name="price"
 				value="${product.price}" readonly="readonly">
 		</div>
-
+		<hr />
 	</article>
 
 	<c:choose>
@@ -48,13 +48,15 @@
 			<button type="button" id="btnUpdate" class="btn btn-primary  btn-sm">수정</button>
 			<button type="button" id="btnDelete" class="btn btn-danger  btn-sm">삭제</button>
 			<a href="hello/chat/${product.itemid}">
-			<button type="button" id="btnChat" class="btn btn-danger  btn-sm">채팅으로
-				거래하기</button></a>
+				<button type="button" id="btnChat" class="btn btn-danger  btn-sm">채팅으로
+					거래하기</button>
+			</a>
 		</c:when>
 		<c:otherwise>
 			<a href="hello/chat/${product.itemid}">
-			<button type="button" id="btnChat" class="btn btn-danger  btn-sm">채팅으로
-				거래하기</button></a>
+				<button type="button" id="btnChat" class="btn btn-danger  btn-sm">채팅으로
+					거래하기</button>
+			</a>
 		</c:otherwise>
 	</c:choose>
 
@@ -70,18 +72,19 @@
 			value="댓글쓰기">
 	</div>
 	<hr />
-<div>
-	<table class="table table-borderless">
-		<c:forEach items="${product.comments}" var="comment">
-		<tr>
-			<td>${comment.commentid }</td>
-			<td>${comment.user.username}</td>
-			<td>${comment.content }</td>
-			<td><fmt:formatDate value="${comment.regdate }" pattern="yyyy-MM-dd" /></td>
-		</tr>
-		</c:forEach>
-	</table>
-</div>
+	<div>
+		<table class="table table-borderless">
+			<c:forEach items="${product.comments}" var="comment">
+				<tr>
+					<td>${comment.commentid }</td>
+					<td>${comment.user.username}</td>
+					<td>${comment.content }</td>
+					<td><fmt:formatDate value="${comment.regdate }"
+							pattern="yyyy-MM-dd" /></td>
+				</tr>
+			</c:forEach>
+		</table>
+	</div>
 	<hr />
 </section>
 

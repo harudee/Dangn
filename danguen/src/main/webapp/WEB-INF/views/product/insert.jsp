@@ -1,14 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../includes/header.jsp"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
-</head>
-<body>
-	<section id="content" class="text-m">
+
+<section id="content">
+	<article id="container">
+		<h1>🥕당근거래 글쓰기</h1>
+		
 		<form action="insert" method="post" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="itemname">상품명:</label> <input type="text"
@@ -35,9 +32,8 @@
 			</div>
 
 			<div class="form-group">
-				<label for="content">상품내용:</label>
-				<textarea id="content" name="content" id="content"
-					class="form-control"></textarea>
+				<label for="content">상품내용:</label> <textarea id="content"  rows="5" cols="50" name="content" id="content"
+					class="form-control" placeholder="게시글 내용을 작성해 주세요, 가품 및 판매금지 품목은 게시가 제한될 수 있습니다"></textarea>
 			</div>
 			<div class="form-group">
 				<label for="price">가격:</label> <input type="number"
@@ -46,17 +42,18 @@
 			</div>
 			<button type="submit" class="btn btn-primary">상품등록</button>
 		</form>
-	</section>
+	</article>
+</section>
 
-	<script>
-		$(".custom-file-input").on(
-				"change",
-				function() {
-					var fileName = $(this).val().split("\\").pop();
-					$(this).siblings(".custom-file-label").addClass("selected")
-							.html(fileName);
-				});
-	</script>
+<script>
+	$(".custom-file-input").on(
+			"change",
+			function() {
+				var fileName = $(this).val().split("\\").pop();
+				$(this).siblings(".custom-file-label").addClass("selected")
+						.html(fileName);
+			});
+</script>
 
 </body>
 </html>
