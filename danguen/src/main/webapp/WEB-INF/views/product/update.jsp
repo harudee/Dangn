@@ -17,16 +17,19 @@
 
 			<h3>Update</h3>
 			ItemID : <input type="text" name="id" id="id"
-				value="${product.itemid}"> <br> UserName : <input
+				value="${product.itemid}"> 
+				<br> UserName : <input
 				type="text" name="username" id="username"
-				value="${principal.user.username}" readonly="readonly"> <br>
+				value="${principal.user.username}" readonly="readonly"> 
+				<br>
 			ItemName : <input type="text" name="itemname" id="itemname"
-				value="${product.itemname}"><br> Content :
+				value="${product.itemname}">
+				<br> Content :
 			<textarea rows="5" cols="50" name="content" id="content">${product.content}</textarea>
 			<br> Price: <input type="text" name="price" id="price"
 				value="${product.price}"><br>
 
-			<button type="submit" class="btn btn-primary">수정하기</button>
+			<button type="submit" class="btn btn-primary" id="btnUpdate">수정하기</button>
 		</article>
 	</section>
 	<script>

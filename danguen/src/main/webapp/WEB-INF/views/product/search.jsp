@@ -13,8 +13,8 @@
 
 					<article class="card-top ">
 						<div class="card-photo ">
-							<a class="card-link" href=""></a> <img alt="위닉스 제습기 16리터 팝니다"
-								src="https://dnvefa72aowie.cloudfront.net/origin/article/202107/ea06fd0f1a31a9217a87e84e6dc1840b9e87742068621bdd8cc5955258ecb334.webp?q=82&amp;s=300x300&amp;t=crop" />
+							<a class="card-link" href=""></a> <img
+								src="/resources/images/${product.fileName }"  width="400" height="400"/>
 						</div>
 						<div class="card-desc">
 							<a class="card-title" href="/product/view/${product.itemid}">${product.itemname}</a>
